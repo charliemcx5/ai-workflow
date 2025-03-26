@@ -3,6 +3,28 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// Featured works data with IDs matching our projects data
+const featuredWorks = [
+  {
+    id: 9,
+    title: "African Savanna",
+    image: "https://images.unsplash.com/photo-1549366021-9f761d450615",
+    description: "A lion pride at sunset"
+  },
+  {
+    id: 10,
+    title: "Arctic Wonder",
+    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819",
+    description: "Polar bears in their natural habitat"
+  },
+  {
+    id: 11,
+    title: "Rainforest Life",
+    image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14",
+    description: "Vibrant macaws in the Amazon"
+  }
+];
+
 const Home = () => {
   return (
     <div>
@@ -45,23 +67,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-serif font-bold text-gray-900 mb-12 text-center">Featured Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "African Savanna",
-                image: "https://images.unsplash.com/photo-1549366021-9f761d450615",
-                description: "A lion pride at sunset"
-              },
-              {
-                title: "Arctic Wonder",
-                image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819",
-                description: "Polar bears in their natural habitat"
-              },
-              {
-                title: "Rainforest Life",
-                image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14",
-                description: "Vibrant macaws in the Amazon"
-              }
-            ].map((work, index) => (
+            {featuredWorks.map((work, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -77,7 +83,7 @@ const Home = () => {
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <Link
-                      to="/portfolio"
+                      to={`/project/${work.id}`}
                       className="text-white text-lg font-medium hover:underline"
                     >
                       View Project
