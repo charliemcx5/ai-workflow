@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 
 const Portfolio = () => {
+  window.scrollTo(0, 0);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const filteredProjects = selectedCategory === 'all'

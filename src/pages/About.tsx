@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Camera, Palette, Map, Award } from 'lucide-react';
 
 const About = () => {
+  window.scrollTo(0, 0);
   const skills = [
     {
       icon: <Camera className="h-8 w-8 text-emerald-600" />,

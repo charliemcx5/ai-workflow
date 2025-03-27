@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
-import { projects } from '../data/projects';
+import { projects, Project } from '../data/projects';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Lightbox from '../components/Lightbox';
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const [project, setProject] = useState<any>(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
 
   window.scrollTo(0, 0);
 
@@ -23,6 +26,15 @@ const ProjectDetail = () => {
     
     setLoading(false);
   }, [id]);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
 
   if (loading) {
     return (
@@ -48,13 +60,6 @@ const ProjectDetail = () => {
       </div>
     );
   }
-
-  // Mock additional images for the project
-  const additionalImages = [
-    `https://source.unsplash.com/random/800x600?${project.category},1`,
-    `https://source.unsplash.com/random/800x600?${project.category},2`,
-    `https://source.unsplash.com/random/800x600?${project.category},3`,
-  ];
 
   return (
     <ErrorBoundary>
@@ -109,20 +114,26 @@ const ProjectDetail = () => {
             <h2 className="text-2xl font-serif font-bold text-gray-900 mb-6">Gallery</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {[project.image, ...additionalImages].map((img, index) => (
+              {project.projectImages.map((img, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-lg overflow-hidden shadow-md"
+                  className="bg-white rounded-lg overflow-hidden shadow-md cursor-pointer"
+                  onClick={() => openLightbox(index)}
                 >
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/3] group">
                     <img
-                      src={img}
+                      src={img + "?w=500"}
                       alt={`${project.title} - Image ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <span className="bg-black bg-opacity-50 px-3 py-1 rounded-full text-sm">View larger</span>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -130,6 +141,14 @@ const ProjectDetail = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Lightbox component */}
+      <Lightbox 
+        images={project.projectImages} 
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+      />
     </ErrorBoundary>
   );
 };
