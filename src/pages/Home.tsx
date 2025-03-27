@@ -7,19 +7,19 @@ const featuredWorks = [
   {
     id: 9,
     title: "African Savanna",
-    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?q=10",
+    image: "https://images.unsplash.com/photo-1549366021-9f761d450615",
     description: "A lion pride at sunset"
   },
   {
     id: 10,
     title: "Arctic Wonder",
-    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=10",
+    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819",
     description: "Polar bears in their natural habitat"
   },
   {
     id: 11,
     title: "Rainforest Life",
-    image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14?q=10",
+    image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14",
     description: "Vibrant macaws in the Amazon"
   }
 ];
@@ -76,7 +76,7 @@ const Home = () => {
               >
                 <div className="relative overflow-hidden rounded-lg">
                   <img
-                    src={work.image}
+                    src={work.image + "?w=500"}
                     alt={work.title}
                     className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
                   />
@@ -107,9 +107,10 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=10"
+                src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=500"
                 alt="Bower Tristram"
                 className="rounded-lg shadow-lg"
+                width="100%"
               />
             </motion.div>
             <motion.div

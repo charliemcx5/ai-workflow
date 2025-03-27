@@ -52,7 +52,7 @@ const Portfolio = () => {
               <Link to={`/project/${project.id}`} className="block">
                 <div className="relative h-64">
                   <img
-                    src={project.image + "?q=10"}
+                    src={project.image + "?w=500"}
                     alt={project.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
