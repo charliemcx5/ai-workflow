@@ -45,10 +45,10 @@ const Home = () => {
             className="text-white max-w-3xl"
           >
             <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">
-              Capturing Nature's Stories
+            Wild Moments, Captured
             </h1>
             <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-              I have travelled across the world capturing nature's stories along the way and this is my life's work compiled in one place. Specialising in wildlife photography and hand-painted art, the key to my success has been a keen eye for beauty.
+            Bringing nature's untold stories to life through the art of wildlife photography.
             </p>
             <Link
               to="/portfolio"
