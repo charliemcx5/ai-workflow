@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
@@ -52,7 +52,7 @@ const Portfolio = () => {
               <Link to={`/project/${project.id}`} className="block">
                 <div className="relative h-64">
                   <img
-                    src={project.image}
+                    src={project.image + "?q=10"}
                     alt={project.title}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />

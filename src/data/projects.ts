@@ -63,7 +63,6 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1516496636080-14fb876e029d",
     category: "landscape"
   },
-  // Featured works from Home page
   {
     id: 9,
     title: "African Savanna",

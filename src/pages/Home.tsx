@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -8,19 +7,19 @@ const featuredWorks = [
   {
     id: 9,
     title: "African Savanna",
-    image: "https://images.unsplash.com/photo-1549366021-9f761d450615",
+    image: "https://images.unsplash.com/photo-1549366021-9f761d450615?q=10",
     description: "A lion pride at sunset"
   },
   {
     id: 10,
     title: "Arctic Wonder",
-    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819",
+    image: "https://images.unsplash.com/photo-1589656966895-2f33e7653819?q=10",
     description: "Polar bears in their natural habitat"
   },
   {
     id: 11,
     title: "Rainforest Life",
-    image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14",
+    image: "https://images.unsplash.com/photo-1544923408-75c5cef46f14?q=10",
     description: "Vibrant macaws in the Amazon"
   }
 ];
@@ -108,7 +107,7 @@ const Home = () => {
               transition={{ duration: 0.8 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e"
+                src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=10"
                 alt="Bower Tristram"
                 className="rounded-lg shadow-lg"
               />
